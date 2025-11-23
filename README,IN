@@ -1,0 +1,61 @@
+ACTIVITY  7
+
+
+
+RESEARCH:
+Recursion is a process in which function call itself and the function that calls itself directly or indirectly called a recursive function. A recursive function calls itself so there can be several numbers of the recursive call, so the recursive function should have the termination condition to break the recursion. If there is a not termination condition in a recursive function, a stack overflow will occur and your program will crash.
+
+The recursion formula is the formula used to write recursive functions or recursive series. It provides a way to generate the sequence step by step using previous terms.
+
+Reference : https://aticleworld.com/recursion-in-c/#google_vignette 
+
+
+
+ANALYSE:  A recursive function in mathematics is a function that is defined in terms of itself. In the C programming language, a recursive function is a function that calls itself to solve a problem by breaking it down into smaller, similar sub-problems. 
+Analysis of Recursion in C
+The analysis of a recursive function in C involves understanding its core components, how it operates in memory, and its practical implications compared to an iterative approach. 
+Key Components
+Recursive functions in C require a base case to stop the recursion and a recursive case where the function calls itself with altered parameters.
+
+IDEATE:
+n mathematics and especially number theory, the sum of reciprocals (or sum of inverses) generally is computed for the reciprocals of some or all of the positive integers (counting numbers)—that is, it is generally the sum of unit fractions. If infinitely many numbers have their reciprocals summed, generally the terms are given in a certain sequence and the first n of them are summed, then one more is included to give the sum of the first n+1 of them, etc.
+If only finitely many numbers are included, the key issue is usually to find a simple expression for the value of the sum, or to require the sum to be less than a certain value, or to determine whether the sum is ever an integer.
+For an infinite series of reciprocals, the issues are twofold: First, does the sequence of sums diverge—that is, does it eventually exceed any given number—or does it converge, meaning there is some number that it gets arbitrarily close to without ever exceeding it? (A set of positive integers is said to be large if the sum of its reciprocals diverges, and small if it converges.) 
+REFERENCE : 
+https://en.wikipedia.org/wiki/List_of_sums_of_reciprocals 
+
+
+
+
+
+BUILD IN :
+
+#include <stdio.h>
+float reciprocal(float  n){
+    if(n==0 || n==1){
+        return 1;
+    }
+    else {
+     return   (1/(n)) * reciprocal(n-1);
+    }
+}
+int main() {
+    float num;
+    
+    printf("enter the number :");
+    scanf("%f",&num);
+    printf("the reciprocal of factorial :%f",reciprocal(num));
+    
+return 0;
+
+}
+
+
+OUT PUT:
+enter the number :5
+the reciprocal of factorial :0.008333
+
+
+
+enter the number :9
+the reciprocal of factorial :0.000003
