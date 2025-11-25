@@ -1,20 +1,36 @@
 #include <stdio.h>
-float reciprocal(float  n){
-    if(n==0 || n==1){
-        return 1;
-    }
-    else {
-     return   (1/(n)) * reciprocal(n-1);
-    }
+
+
+int checkPrime(int n, int i) {
+    if (i == 1)
+        return 1;  // prime
+
+    if (n % i == 0)
+        return 0;  // not prime
+
+    return checkPrime(n, i - 1);
 }
+
 int main() {
-    float num;
-    
-    printf("enter the number :");
-    scanf("%f",&num);
-    printf("the reciprocal of factorial :%f",reciprocal(num));
-    
-return 0;
+    int n, times;
 
+    printf("How many numbers do you want to check? ");
+    scanf("%d", &times);
+
+    for (int t = 1; t <= times; t++) {
+
+        printf("\nEnter number %d: ", t);
+        scanf("%d", &n);
+
+        if (n <= 1) {
+            printf("%d is NOT a prime number.\n", n);
+        } else {
+            if (checkPrime(n, n / 2))
+                printf("%d is a PRIME number.\n", n);
+            else
+                printf("%d is NOT a prime number.\n", n);
+        }
+    }
+
+    return 0;
 }
-
